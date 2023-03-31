@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/GameOver.unity
+    guid: bf78985e22e9d4a0284580298688f261
+  - enabled: 1
+    path: Assets/Scenes/pacman.unity
+    guid: 04885d0f38bba964d93a891b0b60c222
+  - enabled: 1
+    path: Assets/Scenes/Mario.unity
+    guid: 94801f2820c0446cc8d63b2ae579e395
+  - enabled: 1
+    path: Assets/Scenes/donkeykong.unity
+    guid: a10d1748fe2009f4d9f4302c6a255f8b
+  - enabled: 1
+    path: Assets/Scenes/Arcadio MP.unity
+    guid: 0186e110455aa534780ee589c84b8729
   m_configObjects: {}
