@@ -2,22 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playermovement_donkey : MonoBehaviour
+public class playerMovementGallaga: MonoBehaviour
 {
-    // Start is called before the first frame update
     public Rigidbody2D rb;
     public float speed;
     public float jump;
     private bool jumping = false;
     private bool left = false;
     private bool right = false;
-    private bool air = false;
-    private bool ladder = false;
-    private bool climbing = false;
-    public float climb;
+   
+    private bool down = false;
     // Update is called once per frame
-
-
     void Update()
     {
         if (Input.GetKey("a"))
@@ -46,15 +41,23 @@ public class playermovement_donkey : MonoBehaviour
         {
             jumping = false;
         }
-        if(Input.GetKey("w") && ladder)
+        if (Input.GetKey("s"))
         {
-            climbing = true;
+            down = true;
+
         }
         else
         {
-            climbing = false;
+            down = false;
         }
-      
+
+        var x = Input.GetAxis("Horizontal") * Time.deltaTime * 6;
+        var z = Input.GetAxis("Vertical") * Time.deltaTime * 6;
+
+        Vector2 direction = Quaternion.AngleAxis(45, Vector2.up) * new Vector2(x, 0);
+
+        transform.Translate(direction);
+
 
     }
     private void FixedUpdate()
@@ -67,38 +70,15 @@ public class playermovement_donkey : MonoBehaviour
         {
             rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (jumping && !air)
+        if (jumping )
         {
-            rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
-            air = true;
+            rb.AddForce(Vector2.up * speed, ForceMode2D.Force);
+            
         }
-        if (climbing)
+        if (down)
         {
-            rb.AddForce(Vector2.up * climb, ForceMode2D.Force);
+            rb.AddForce(Vector2.down * speed, ForceMode2D.Force);
         }
     }
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-
-        if (other.gameObject.CompareTag("Ground"))
-        {
-
-            air = false;
-        }
-        if (other.gameObject.CompareTag("Ladder"))
-        {
-
-            air = true;
-            ladder = true;
-            Debug.Log("zzz");
-        }
-        else
-        {
-            ladder = false;
-        }
-
-
-
-
-    }
+   
 }
