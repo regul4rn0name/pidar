@@ -7,6 +7,7 @@ TagManager:
   - Ground
   - Q_Block
   - Brick
+  - enemy
   layers:
   - Default
   - TransparentFX

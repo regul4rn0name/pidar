@@ -59,7 +59,8 @@ public class pacman_play_movement : MonoBehaviour
         {
             rb.AddForce(Vector2.left * speed, ForceMode2D.Force);
        
-        }
+        } 
+        
         if (right)
         {
             rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
