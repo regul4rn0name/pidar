@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Q_Block
+  - Brick
   layers:
   - Default
   - TransparentFX
