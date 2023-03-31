@@ -16,6 +16,8 @@ public class playermovement_donkey : MonoBehaviour
     private bool climbing = false;
     public float climb;
     // Update is called once per frame
+
+
     void Update()
     {
         if (Input.GetKey("a"))
