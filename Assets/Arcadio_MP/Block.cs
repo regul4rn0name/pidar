@@ -2,18 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Racket : MonoBehaviour
+public class Block : MonoBehaviour
 {
-    public float speed = 150f;
 
-    void FixedUpdate()
+    void OnCollisionEnter2D(Collision2D collisionInfo)
     {
-        float h = Input.GetAxisRaw("Horizontal");
-
-        GetComponent<Rigidbody2D>().velocity = Vector2.right * h * speed;
-
-
+        // Destroy the whole Block
+        Destroy(gameObject);
     }
+
     // Start is called before the first frame update
     void Start()
     {

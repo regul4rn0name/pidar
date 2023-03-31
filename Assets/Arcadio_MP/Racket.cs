@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections;
 
-public class Racket_Arcadio : MonoBehaviour
+public class Racket : MonoBehaviour
 {
-    // Start is called before the first frame update
 
     public Rigidbody2D rb;
-
+    
     public float speed = 150;
     private bool left = false;
     private bool right = false;
@@ -15,7 +13,7 @@ public class Racket_Arcadio : MonoBehaviour
     void FixedUpdate()
     {
 
-
+     
         if (left)
         {
             rb.AddForce(Vector2.left * speed, ForceMode2D.Force);
