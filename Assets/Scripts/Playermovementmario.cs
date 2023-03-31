@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Playermovementmario : MonoBehaviour
 {
@@ -72,7 +73,11 @@ public class Playermovementmario : MonoBehaviour
 
             air = false;
         }
+        if (other.gameObject.CompareTag("enemy"))
+        {
 
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
 
     }
 }
