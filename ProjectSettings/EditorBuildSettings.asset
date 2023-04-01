@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Arcadio MP.unity
     guid: 0186e110455aa534780ee589c84b8729
   - enabled: 1
-    path: Assets/mirzonenko arkanoid/Scenes/FirstLevelScene.unity
+    path: Assets/komlyk savelli/Scenes/FirstLevelScene.unity
     guid: 061d91909f9a74e94866c385f1d02490
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
