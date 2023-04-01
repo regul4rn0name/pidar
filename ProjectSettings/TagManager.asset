@@ -8,6 +8,8 @@ TagManager:
   - Q_Block
   - Brick
   - enemy
+  - restart
+  - ball
   layers:
   - Default
   - TransparentFX
