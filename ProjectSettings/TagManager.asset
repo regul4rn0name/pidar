@@ -8,7 +8,9 @@ TagManager:
   - Q_Block
   - Brick
   - enemy
-  - mushroom
+  - dedwall
+  - enemybl
+  - bl
   layers:
   - Default
   - TransparentFX
