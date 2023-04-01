@@ -3,20 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Ground
-  - Q_Block
-  - Brick
-  - enemy
-  - mushroom
-  - Ladder
-  - chlen
-  - Barrel
+  tags: []
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - Background
+  - 
   - Water
   - UI
   - 
@@ -46,12 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 3594965837
-    locked: 0
-  - name: Player
-    uniqueID: 1084233985
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

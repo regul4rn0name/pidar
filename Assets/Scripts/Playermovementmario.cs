@@ -123,6 +123,16 @@ public class Playermovementmario : MonoBehaviour
             objectTransform.localScale *= 1.2f;
             
         }
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+        }
+        if (other.gameObject.CompareTag("Respawn"))
+        {
+
+            SceneManager.LoadScene("galaga", LoadSceneMode.Single);
+        }
 
     }
 }
