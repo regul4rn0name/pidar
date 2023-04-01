@@ -50,31 +50,10 @@ public class enemy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("bl"))
         {       
-            Destroy(gameObject);
-            
-           
-           
-Debug.Log(killCount);
-count();
-        
-            
-              
+                       
+            EnemyCounter.Instance.EnemyDied();
+            Destroy(gameObject);      
             }
         }
-    void Update(){
-          if (killCount == 4)
-                {
-                    
-                        SceneManager.LoadScene("donkeykong");
-                    
-                }
-                else
-                {
-                    Debug.Log("Не все враги убиты!");
-                }
-    }
-    void count(){
-        killCount ++;
-        Debug.Log("das");
-    }
+   
 }
