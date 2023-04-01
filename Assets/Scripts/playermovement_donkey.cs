@@ -88,6 +88,10 @@ public class playermovement_donkey : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            SceneManager.LoadScene("win", LoadSceneMode.Single);
+        }
     }
 
 }
