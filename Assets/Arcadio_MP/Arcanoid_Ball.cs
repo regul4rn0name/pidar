@@ -1,17 +1,20 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Arcanoid_Ball : MonoBehaviour
 {
-    public float speed = 100f;
+    
+    public float speed = 100.0f;
+    
 
     // Use this for initialization
 
 
 
-        // Start is called before the first frame update
-        void Start()
+    // Start is called before the first frame update
+    void Start()
     {
         GetComponent<Rigidbody2D>().velocity = Vector2.up * speed;
     }
@@ -31,7 +34,7 @@ public class Arcanoid_Ball : MonoBehaviour
         // ===================  <- racket
         //
         return (ballPos.x - racketPos.x) / racketWidth;
-    }
+    }   
     void OnCollisionEnter2D(Collision2D col)
     {
         // Hit the Racket?
@@ -47,6 +50,14 @@ public class Arcanoid_Ball : MonoBehaviour
 
             // Set Velocity with dir * speed
             GetComponent<Rigidbody2D>().velocity = dir * speed;
+
+                
+        }
+        if (col.gameObject.name == "border_top") // Проверяем, что столкнулись с объектом border_top
+        {
+            SceneManager.LoadScene("Arcadio MP"); // Перезагружаем сцену Arcadio MP
         }
     }
+
+
 }

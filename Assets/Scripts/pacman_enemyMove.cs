@@ -1,31 +1,28 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-
 
 public class pacman_enemyMove : MonoBehaviour
 {
-   
-    public float moveSpeed = 2f;
-    public Transform[] waypoints;
+    public Transform pacman;
+    public float speed = 5f;
+    public LayerMask obstacleLayer;
+    
 
-    private int currentWaypointIndex = 0;
-
-    void Update()
+    void Start() {
+        obstacleLayer = LayerMask.NameToLayer("Obstacle");
+    }
+    private void Update()
     {
-        // Check if we've reached the current waypoint
-        if (Vector2.Distance(transform.position, waypoints[currentWaypointIndex].position) < 0.1f)
+        // Вычисляем направление движения к пакмену
+        Vector2 direction = (pacman.position - transform.position).normalized;
+
+        // Проверяем, есть ли препятствие в направлении движения
+        if (Physics2D.Raycast(transform.position, direction, 0.1f, obstacleLayer))
         {
-            // If we have, move to the next waypoint
-            currentWaypointIndex++;
-            if (currentWaypointIndex >= waypoints.Length)
-            {
-                // If we've reached the end of the waypoints, loop back to the start
-                currentWaypointIndex = 0;
-            }
+            // Если есть, выбираем новое направление движения
+            direction = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
         }
 
-        // Move towards the current waypoint
-        transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypointIndex].position, moveSpeed * Time.deltaTime);
+        // Перемещаем призрака в заданном направлении
+        transform.Translate(direction * speed * Time.deltaTime);
     }
 }
