@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class playermovement_donkey : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class playermovement_donkey : MonoBehaviour
             right = false;
 
         }
-        if (Input.GetKey("w"))
+        if (Input.GetKey("w") && !air)
         {
             jumping = true;
 
@@ -67,7 +68,7 @@ public class playermovement_donkey : MonoBehaviour
         {
             rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
         }
-        if (jumping && !air)
+        if (jumping )
         {
             rb.AddForce(Vector2.up * jump, ForceMode2D.Impulse);
             air = true;
@@ -77,28 +78,16 @@ public class playermovement_donkey : MonoBehaviour
             rb.AddForce(Vector2.up * climb, ForceMode2D.Force);
         }
     }
-    private void OnCollisionEnter2D(Collision2D other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        if (other.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Ground"))
         {
-
             air = false;
         }
-        if (other.gameObject.CompareTag("Ladder"))
+        if (collision.gameObject.CompareTag("Barrel"))
         {
-
-            air = true;
-            ladder = true;
-            Debug.Log("zzz");
+            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
-        else
-        {
-            ladder = false;
-        }
-
-
-
-
     }
+
 }

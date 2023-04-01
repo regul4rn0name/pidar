@@ -15,11 +15,15 @@ public class Playermovementmario : MonoBehaviour
     private bool right = false;
     public bool air = false;
     public float friction;
+    public float horizontal;
    
     
     
     void Update()
     {
+        horizontal = Input.GetAxisRaw("Horizontal");
+        
+        
         if (Input.GetKey("a"))
         {
             left = true;
@@ -61,6 +65,9 @@ public class Playermovementmario : MonoBehaviour
     }
     private void FixedUpdate()
     {
+
+        rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        
         if (left)
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);

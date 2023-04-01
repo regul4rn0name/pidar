@@ -6367,6 +6367,7 @@ GameObject:
   - component: {fileID: 993313048}
   - component: {fileID: 993313052}
   - component: {fileID: 993313053}
+  - component: {fileID: 993313054}
   m_Layer: 0
   m_Name: mario
   m_TagString: Player
@@ -6415,7 +6416,7 @@ Rigidbody2D:
   m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 6200000, guid: 15afd4a0d9930374c9ed675bee660f73, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -6503,10 +6504,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 993313049}
   animator: {fileID: 993313053}
-  speed: 3
-  jump: 60
+  speed: 5
+  jump: 100
   air: 1
   friction: 200
+  horizontal: 0
 --- !u!95 &993313053
 Animator:
   serializedVersion: 5
@@ -6527,6 +6529,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &993313054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993313047}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa201b52798f45742ac7a9904c275f4e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
 --- !u!1 &1002753969
 GameObject:
   m_ObjectHideFlags: 0
