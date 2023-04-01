@@ -70,13 +70,13 @@ public class Ball : MonoBehaviour {
         if (racket == 0)
         {
             Destroy(gameObject);
-            SceneManager.LoadScene("LoseScene", LoadSceneMode.Single);
+            SceneManager.LoadScene("Loosegame", LoadSceneMode.Single);
         }
         if (SceneManager.GetActiveScene().name == "FirstLevelScene")
         {
             if(GameObject.FindGameObjectsWithTag("Block").Length < 1)
             {
-				SceneManager.LoadScene("SecondLevelScene", LoadSceneMode.Single);
+				SceneManager.LoadScene("Mario", LoadSceneMode.Single);
 				racket++;
 				speed += (float)30;
 				current_scene_score = 0;
