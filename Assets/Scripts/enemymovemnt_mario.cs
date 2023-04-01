@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class enemymovemnt_mario : MonoBehaviour
 {
@@ -8,6 +9,10 @@ public class enemymovemnt_mario : MonoBehaviour
     public float speed;
     public Rigidbody2D rb;
     private bool dir = false;
+
+    private bool air2 = false;
+    
+   
     
 
     // Update is called once per frame
@@ -15,16 +20,23 @@ public class enemymovemnt_mario : MonoBehaviour
     {
         if (dir)
         {
-            rb.AddForce(Vector2.left, ForceMode2D.Force);
+            rb.AddForce(Vector2.left* speed, ForceMode2D.Force);
         }
         else
         {
-            rb.AddForce(Vector2.right, ForceMode2D.Force);
+            rb.AddForce(Vector2.right* speed, ForceMode2D.Force);
         }
+        GameObject otherObject = GameObject.Find("mario");
+        Playermovementmario otherScript = otherObject.GetComponent<Playermovementmario>();
+        air2 = otherScript.air;
+
+
+
+
     }
     private IEnumerator ChangeDirectionWithDelay(float delayTime)
     {
-        yield return new WaitForSeconds(delayTime);
+        yield return new WaitForSeconds(0f);
 
         dir = !dir;
         Debug.Log(dir);
@@ -32,10 +44,18 @@ public class enemymovemnt_mario : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Brick"))
+        if (collision.gameObject.CompareTag("Brick") || collision.gameObject.CompareTag("mushroom"))
         {
-            StartCoroutine(ChangeDirectionWithDelay(1f));
+            StartCoroutine(ChangeDirectionWithDelay(0.5f));
+
         }
+        if (collision.gameObject.CompareTag("Player")&& air2)
+        {
+            Destroy(gameObject);
+            Debug.Log("zlupka");
+
+        }
+        
     }
 
 }
