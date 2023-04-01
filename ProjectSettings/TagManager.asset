@@ -9,6 +9,9 @@ TagManager:
   - Brick
   - enemy
   - mushroom
+  - Ladder
+  - chlen
+  - Barrel
   layers:
   - Default
   - TransparentFX
