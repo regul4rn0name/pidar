@@ -12,7 +12,7 @@ public class restart : MonoBehaviour
     {
         if (Input.GetKey("r"))
         {
-            SceneManager.LoadScene("pacman", LoadSceneMode.Single);
+            SceneManager.LoadScene("arkanoid", LoadSceneMode.Single);
             Debug.Log("pidar");
         }
     }
