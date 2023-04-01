@@ -19,7 +19,7 @@ public class pacman_play_movement : MonoBehaviour
         {
             left = true;
         }
-        else
+        else if(Input.GetKey("d") || Input.GetKey("w")||Input.GetKey("s"))
         {
             left = false;
         }
@@ -27,29 +27,29 @@ public class pacman_play_movement : MonoBehaviour
         {
             right = true;
         }
-        else
+       else if(Input.GetKey("a") || Input.GetKey("w")||Input.GetKey("s"))
         {
             right = false;
-
         }
         if (Input.GetKey("w"))
         {
             up = true;
 
-        }
-        else
+        }else if(Input.GetKey("d") || Input.GetKey("a")||Input.GetKey("s"))
         {
             up = false;
         }
+        
         if (Input.GetKey("s"))
         {
             down = true;
 
         }
-        else
+        else if(Input.GetKey("d") || Input.GetKey("w")||Input.GetKey("a"))
         {
             down = false;
         }
+       
 
 
     }
@@ -60,7 +60,6 @@ public class pacman_play_movement : MonoBehaviour
             rb.AddForce(Vector2.left * speed, ForceMode2D.Force);
        
         } 
-        
         if (right)
         {
             rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
