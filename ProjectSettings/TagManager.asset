@@ -12,6 +12,8 @@ TagManager:
   - Ladder
   - chlen
   - Barrel
+  - ball
+  - Ball
   layers:
   - Default
   - TransparentFX
